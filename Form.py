@@ -24,6 +24,49 @@ signup = tk.PhotoImage(file='signup.png')
 
 
 # ____________________________end Icon_____________________________
+# _______________________________________ Functionality _________________________
+def login():
+    user = username_var.get()
+    p = password_var.get()
+    print(remember_var.get())
+    if user == "" or p == "":
+        m_box.showerror("Fill Data", "You Must have not Enter User_Name and Password ")
+    else:
+        m_box.showinfo(" ", "Thank You For Login In")
+        username_box.delete(0, tk.END)
+        password_box.delete(0, tk.END)
+
+
+def sign_up():
+    signn_up = tk.Tk()
+    signn_up.minsize(width=500, height=400)
+    signn_up.title('Sign Up')
+    signn_up.configure(bg="#258F68")
+
+    # ____________________________________ Functionality __________________________________
+
+    def action():
+        first = fname_var.get()
+        last = lname_var.get()
+        mail = email_var.get()
+        passcode = security_var.get()
+        agreement = terms_var.get()
+        newsletter = subscribe_var.get()
+        print(f"first_name: {first}\n"
+              f"Last_name: {last}\n"
+              f"Email: {mail}\n"
+              f"Password: {passcode}\n"
+              f"Agreement: {agreement}\n"
+              f"newsletter: {newsletter}")
+        with open('file.txt', 'a') as f:
+            f.write(f"first_name: {first}\n"
+                    f"Last_name: {last}\n"
+                    f"Email: {mail}\n"
+                    f"Password: {passcode}\n"
+                    f"Agreement: {agreement}\n"
+                    f"newsletter: {newsletter}")
+
+    # ____________________________________ End Functionality ______________________________
 # __________________________Login Labels___________________________
 
 login_label = tk.Label(login_frame, text=' L O G I N ', font=('Arial', 16, 'bold', 'underline')
